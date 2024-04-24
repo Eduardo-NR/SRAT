@@ -1,0 +1,9 @@
+.color1 {color: #120907;}   Negro
+.color2 {color: #121f39;}   Azul muy oscuro
+.color3 {color: #144f81;}   Azul medio
+.color4 {color: #1f8bd4;}   Azul claro	
+.color5 {color: #20bfd8;}   Azul cayate no te usare
+
+Blanco: #FFFFFF
+
+colores para SRAT :p
