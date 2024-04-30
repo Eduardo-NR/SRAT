@@ -6,7 +6,7 @@ $pass = '';
 
 try{
     $pdo = new PDO($link,$usuario,$pass);
-    echo 'lucario es furro';
+    // echo 'Conectado';
 }
 catch(PDOExeption $e){
     print "¡Error!:" . $e->getMessage() . "<br/>";
