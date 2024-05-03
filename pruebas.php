@@ -2,7 +2,6 @@
 // conexion a la base de datos
 include_once 'conexion.php';
 
-<<<<<<< HEAD
 $sql = 'SELECT * FROM solicitada';
 $consultar = $pdo->prepare($sql);
 $consultar->execute(array(''));
@@ -12,18 +11,7 @@ var_dump($mostrar);
 ?>
 
 <!DOCTYPE html>
-<html lang="ES">
-=======
-$sql_leer = 'SELECT * FROM asistencia_s';
-$consultar = $pdo->prepare($sql_leer);
-$consultar->execute();
-$mostrar = $consultar->fetchAll();
-var_dump($mostrar);
-?>
-
-<!DOCTYPE html>
 <html lang="es">
->>>>>>> 5dbf78e78403e2c2576bda52850172a9ae59dbfc
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -50,7 +38,6 @@ var_dump($mostrar);
 </div>
 </div>
 
-<<<<<<< HEAD
 <?php foreach($mostrar as $dato): ?>
 <p>
   <?php echo $dato['fechar']?> 
@@ -60,8 +47,6 @@ var_dump($mostrar);
   <?php echo $dato['falla']?> 
 </p>
 <?php endforeach ?>
-=======
->>>>>>> 5dbf78e78403e2c2576bda52850172a9ae59dbfc
 
 <script src="js/bootstrap.bundle.js"></script>
 </body>
