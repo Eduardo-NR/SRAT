@@ -8,22 +8,141 @@
     <title>SRAT</title>
 </head>
 <body class="bg-dark-subtle">
+
 <!-- Barra de Navegación  -->
 <div class="container-fluid">
 <div class="row">
 <div class="col-9">
     <nav style="background-color: #1B83AD;" >
       <div class="pb-0 w-100 img-flex ratio-1x1" ><img src="imagen/srat.png" alt="logo" style="margin-left: 250px;" ></div>
-      <div class="nav nav-pills mb-3" id="pills-tab" role="tablist" style="margin-left: 365px;">
-          <button class="nav-link btn btn-outline-info shadow p-2 rounded mx-2" style="color: #FFFFFF;" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Home</button>
-          <button class="nav-link btn btn-outline-info shadow p-2 rounded mx-2" style="color: #FFFFFF;" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</button>
-           <button class="nav-link btn btn-outline-info shadow p-2 rounded mx-2" style="color: #FFFFFF;" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</button>
+      <div class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+          <button class="nav-link btn btn-outline-info shadow p-2 rounded mx-2" style="color: #FFFFFF;" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Asistencia Técnica Programada</button>
+          <button class="nav-link btn btn-outline-info shadow p-2 rounded mx-2" style="color: #FFFFFF;" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Asistencia Técnica Solicitada</button>
+          <button class="nav-link btn btn-outline-info shadow p-2 rounded mx-2" style="color: #FFFFFF;" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Informe Técnico de Mantenimiento</button>
       </div>
     </nav>
     <div class="tab-content" id="nav-tabContent">
-      <div class="tab-pane fade" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0"> <h3>Esto es un ejemplo</h3> </div>
-      <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">...</div>
-      <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">...</div>
+      <div class="tab-pane fade" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+<!-- Tabla 1: Asistencia Técnica Programada -->
+        <table class="table">
+          <thead>
+            <tr class="text-center">
+              <th scope="col">Nro.Planilla</th>
+              <th scope="col">Dependencia</th>
+              <th scope="col">F/Recibido</th>
+              <th scope="col">F/Corrección</th>
+              <th scope="col">Ctd.Equipos</th>
+              <th scope="col">Act.Ejecutadas</th>
+            </tr>
+          </thead>
+          <tbody class="table-group-divider">
+            <tr>
+              <th scope="row">1</th>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td colspan="2">Larry the Bird</td>
+              <td>@twitter</td>
+              <td>afirmativo que rico xD</td>
+            </tr>
+            <tr>
+              <th scope="row">4</th>
+              <td>Retractil</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
+<!-- Tabla 2: Asistencia Técnica Solicitada         -->
+        <table class="table">
+          <thead>
+            <tr class="text-center">
+              <th scope="col">Nro.Planilla</th>
+              <th scope="col">Dependencia</th>
+              <th scope="col">F/Recibido</th>
+              <th scope="col">F/Corrección</th>
+              <th scope="col">Falla Apreciada</th>
+              <th scope="col">Diagnóstico/Act.Realizadas</th>
+              <th scope="col">Obs/Sugerencias</th>
+            </tr>
+          </thead>
+          <tbody class="table-group-divider">
+            <tr>
+              <th scope="row">1</th>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td colspan="2">Larry the Bird</td>
+              <td>@twitter</td>
+              <td>afirmativo que rico xD</td>
+            </tr>
+            <tr>
+              <th scope="row">4</th>
+              <td><button type="button" class="btn btn-succes">Agregar</button></td>
+            </tr>
+          </tbody>
+        </table>   
+      </div>
+
+      <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">
+<!-- Tabla 3: Informe Técnico de Mantenimiento -->
+        <table class="table">
+          <thead>
+            <tr class="text-center">
+              <th scope="col">Nro.Planilla</th>
+              <th scope="col">Dependencia</th>
+              <th scope="col">F/Recibido</th>
+              <th scope="col">F/Correción</th>
+              <th scope="col">Motivo</th>
+              <th scope="col">Diagnostico/Act.Realizadas</th>
+              <th scope="col">Obs/Sugerencias</th>
+            </tr>
+          </thead>
+          <tbody class="table-group-divider">
+            <tr>
+              <th scope="row">1</th>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td colspan="2">Larry the Bird</td>
+              <td>@twitter</td>
+              <td>afirmativo que rico xD</td>
+            </tr>
+            <tr>
+              <th scope="row">4</th>
+              <td>Retractil</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 <div class="row mt-4">
   <!-- carousel -->
@@ -93,12 +212,6 @@
 </div>
 </div>
 </div>   
-      
-    
-
-
-
-
 
 <script src="js/bootstrap.bundle.js"></script>
 </body>

@@ -1,13 +1,15 @@
-<?php 
+<?php
 
-$link = 'mysql:host=localhost;dbmname=srat';
+$link = 'mysql:host=localhost;dbname=tecnica';
 $usuario = 'root';
 $pass = '';
 
 try{
     $pdo = new PDO($link,$usuario,$pass);
-    echo 'lucario es furro';
+    
+    // echo 'Conectado';
 }
+
 catch(PDOExeption $e){
     print "¡Error!:" . $e->getMessage() . "<br/>";
     die();
