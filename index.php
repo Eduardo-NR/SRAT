@@ -1,11 +1,20 @@
 <?php 
+//conexion a la base de datos 
 include_once 'conexion.php';
 
+//consulta para leer datos de las tablas items, asistencia_s, informe.
+$sql = 'SELECT ITM.nro_p, ITM.dependencia, ITM.diagnostico_act, ITM.obs_sugerencias, ATS.falla, ATS.fecha_r, INF.motivo, fecha_c
+        FROM items ITM
+        INNER JOIN asistencia_s ATS ON ITM.id_as = ATS.id_as
+        INNER JOIN informe INF ON ITM.id_if = INF.id_if';
+$consulta = $pdo->prepare($sql);
+$consulta->execute();
+$mostrar = $consulta->fetchAll();
+var_dump($mostrar);
 
 ?>
 
-
-
+<!-- index del programa -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
