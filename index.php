@@ -2,7 +2,13 @@
 //conexion a la base de datos 
 include_once 'conexion.php';
 
-//consulta para leer datos de las tablas items, asistencia_s, informe.
+//consulta para leer datos de la tabla asistencia_p.
+$sql_p = 'SELECT * FROM asistencia_p';
+$consulta_p = $pdo->prepare($sql_p);
+$consulta_p->execute();
+$mostrar_p = $consulta_p->fetchAll();
+
+//consulta para leer datos de las tablas: items, asistencia_s, informe.
 $sql = 'SELECT ITM.nro_p, ITM.dependencia, ITM.diagnostico_act, ITM.obs_sugerencias, ATS.falla, ATS.fecha_r, INF.motivo, fecha_c
         FROM items ITM
         INNER JOIN asistencia_s ATS ON ITM.id_as = ATS.id_as
@@ -10,8 +16,7 @@ $sql = 'SELECT ITM.nro_p, ITM.dependencia, ITM.diagnostico_act, ITM.obs_sugerenc
 $consulta = $pdo->prepare($sql);
 $consulta->execute();
 $mostrar = $consulta->fetchAll();
-var_dump($mostrar);
-
+// var_dump($mostrar, $mostrar_p);
 ?>
 
 <!-- index del programa -->
@@ -50,16 +55,19 @@ var_dump($mostrar);
               <th scope="col">Act.Ejecutadas</th>
               <th scope="col">F/Recibido</th>
               <th scope="col">F/Corrección</th>
+              <th></th>
             </tr>
           </thead>
           <tbody class="table-group-divider">
+          <?php foreach($mostrar_p as $dato_p): ?>
             <tr>
-              <th class="text-center" scope="row">1</th>
-              <td class="text-center">Mark</td>
-              <td class="text-center">Otto</td>
-              <td class="text-center">@mdo</td>
-              <td class="text-center">1</td>
-              <td class="text-center">Mark</td>
+              <th class="text-center" scope="row"><?php echo $dato_p['nro_pp']?></th>
+              <td class="text-center"><?php echo $dato_p['dependencia_p']?></td>
+              <td class="text-center"><?php echo $dato_p['ctd_equipos']?></td>
+              <td class="text-center"><?php echo $dato_p['act_ejecutadas']?></td>
+              <td class="text-center"><?php echo $dato_p['fecha_rp']?></td>
+              <td class="text-center"><?php echo $dato_p['fecha_cp']?></td>
+              <td>icons</td>
             </tr>
           </tbody>
         </table>
@@ -72,23 +80,27 @@ var_dump($mostrar);
             <tr class="text-center">
               <th scope="col">Nro.Planilla</th>
               <th scope="col">Dependencia</th>
-              <th scope="col">Falla Apreciada</th>
+              <th scope="col">Falla</th>
               <th scope="col">Diagnóstico/Act.Realizadas</th>
               <th scope="col">Obs/Sugerencias</th>
               <th scope="col">F/Recibido</th>
               <th scope="col">F/Corrección</th>
+              <th></th>
             </tr>
           </thead>
           <tbody class="table-group-divider">
+          <?php foreach($mostrar as $dato) ?>
             <tr>
-              <th class="text-center" scope="row">1</th>
-              <td class="text-center">Mark</td>
-              <td class="text-center">Otto</td>
-              <td class="text-center">@mdo</td>
-              <td class="text-center">1</td>
-              <td class="text-center">Mark</td>
-              <td class="text-center">Mark</td>
+              <th class="text-center" scope="row"><?php echo $dato['nro_p']?></th>
+              <td class="text-center"><?php echo $dato['dependencia']?></td>
+              <td class="text-center"><?php echo $dato['falla']?></td>
+              <td class="text-center"><?php echo $dato['diagnostico_act']?></td>
+              <td class="text-center"><?php echo $dato['obs_sugerencias']?></td>
+              <td class="text-center"><?php echo $dato['fecha_r']?></td>
+              <td class="text-center"><?php echo $dato['fecha_c']?></td>
+              <td>icons</td>
             </tr>
+           
           </tbody>
         </table>   
       </div>
@@ -105,18 +117,21 @@ var_dump($mostrar);
               <th scope="col">Obs/Sugerencias</th>
               <th scope="col">F/Recibido</th>
               <th scope="col">F/Correción</th>
+              <th></th>
             </tr>
           </thead>
           <tbody class="table-group-divider">
             <tr>
-              <th class="text-center" scope="row">1</th>
-              <td class="text-center">Mark</td>
-              <td class="text-center">Otto</td>
-              <td class="text-center">@mdo</td>
-              <td class="text-center">1</td>
-              <td class="text-center">Mark</td>
-              <td class="text-center">Mark</td>
+              <th class="text-center" scope="row"><?php echo $dato['nro_p']?></th>
+              <td class="text-center"><?php echo $dato['dependencia']?></td>
+              <td class="text-center"><?php echo $dato['motivo']?></td>
+              <td class="text-center"><?php echo $dato['diagnostico_act']?></td>
+              <td class="text-center"><?php echo $dato['obs_sugerencias']?></td>
+              <td class="text-center"><?php echo $dato['fecha_r']?></td>
+              <td class="text-center"><?php echo $dato['fecha_c']?></td>
+              <td>icons</td>
             </tr>
+          <?php endforeach ?>
           </tbody>
         </table>
       </div>
