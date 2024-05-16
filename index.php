@@ -68,7 +68,10 @@ $mostrar = $consulta->fetchAll();
               <td class="text-center"><?php echo $dato_p['act_ejecutadas']?></td>
               <td class="text-center"><?php echo $dato_p['fecha_rp']?></td>
               <td class="text-center"><?php echo $dato_p['fecha_cp']?></td>
-              <td></td>
+              <td class="text-center">
+              <i class="bi bi-pencil-square btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#EditModal_asistencia_p"></i>
+              <i class="bi bi-file-earmark-x btn btn-outline-danger shadow"></i>
+              </td>
             </tr>
           </tbody>
         </table>
