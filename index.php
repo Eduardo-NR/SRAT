@@ -27,6 +27,7 @@ $mostrar = $consulta->fetchAll();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <title>SRAT</title>
 </head>
 <body class="bg-dark-subtle">
@@ -67,7 +68,7 @@ $mostrar = $consulta->fetchAll();
               <td class="text-center"><?php echo $dato_p['act_ejecutadas']?></td>
               <td class="text-center"><?php echo $dato_p['fecha_rp']?></td>
               <td class="text-center"><?php echo $dato_p['fecha_cp']?></td>
-              <td>icons</td>
+              <td></td>
             </tr>
           </tbody>
         </table>
