@@ -9,12 +9,11 @@
     <title>Document</title>
 </head>
 <body  class="bg-dark-subtle">
-  <!-- Button trigger Modal-Asistencia Programada ADD -->
+<!-- Button trigger Modal-Asistencia Programada ADD -->
   <button type="button" class="btn btn-outline-primary shadow" data-bs-toggle="modal" data-bs-target="#Modal_asistencia_p">
     Nueva Asiatencia
   </button>
-  
-  <!-- Modal-Asistencia Programada ADD -->
+<!-- Modal-Asistencia Programada ADD -->
   <div class="modal fade" id="Modal_asistencia_p" data-bs-backdrop="static" tabindex="-1" aria-labelledby="Modal_Label_p" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable modal-md">
       <div class="modal-content">
@@ -22,13 +21,42 @@
           <h1 class="modal-title fs-5 mx-auto" id="Modal_Label_p">Asistencia Técnica Programda</h1>
         </div>
         <div class="modal-body">
-          <div class="container-fluid">
-            
-          </div>
+<!-- Formulario para envio de informacion - Asistencia Programada -->
+          <form class="row g-3">
+            <div class="col-md-3">
+              <label for="validationNro_planilla" class="form-label">Nro.Planilla</label>
+              <input type="text" class="form-control" id="validationNro_planilla" value="" required>
+            </div>
+            <div class="col-md-6">
+              <label for="validationDepartamento" class="form-label">Departamento</label>
+              <select class="form-select" id="validationDepartamento" required>
+                <option selected disabled value="">Seleccionar</option>
+                <option>...</option>
+              </select>
+            </div>
+            <div class="col-md-3">
+              <label for="validationCtd_equipos" class="form-label">Ctd.Equipos</label>
+              <input type="text" class="form-control" id="validationCtd_equipos" value="" required>
+            </div>
+            <div class="col-md-3 mt-4">
+              <label for="validationDefault03" class="form-label">Fch.Recibido</label>
+              <input type="text" class="form-control" id="validationDefault03" required>
+            </div>
+            <div class="col-md-3 mt-4">
+              <label for="validationDefault02" class="form-label">Fch.Corrección</label>
+              <input type="text" class="form-control" id="validationDefault02" value="" required>
+            </div>
+            <div class="col-md-6 mt-4">
+              <label for="validationDefault05" class="form-label">Zip</label>
+              <input type="text" class="form-control" id="validationDefault05" required>
+            </div>
+            <div class="col-md-2" style="margin-left: 190px;">
+              <button class="btn btn-outline-success" type="submit">Agregar</button>
+            </div>
+          </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-outline-success">Agregar</button>
+            <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Cerrar</button>
         </div>
       </div>
     </div>
