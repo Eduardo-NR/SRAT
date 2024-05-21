@@ -32,10 +32,10 @@ $mostrar = $consulta->fetchAll();
 </head>
 <body class="bg-dark-subtle">
 
-<!-- Barra de Navegación  -->
 <div class="container-fluid">
 <div class="row">
 <div class="col-9">
+<!-- Barra de Navegación  -->
     <nav style="background-color: #1B83AD;" >
       <div class="pb-0 w-100 img-flex ratio-1x1" ><img src="imagen/srat.png" alt="logo" style="margin-left: 250px;" ></div>
       <div class="nav nav-pills mb-3" id="pills-tab" role="tablist">
@@ -141,7 +141,7 @@ $mostrar = $consulta->fetchAll();
       </div>
     </div>
 <div class="row mt-4">
-  <!-- carousel -->
+<!-- carousel -->
 <div class="col-7">   
     <div id="carouselExampleInterval" class="carousel slide " data-bs-ride="carousel">
         <div class="carousel-inner">
