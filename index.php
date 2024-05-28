@@ -34,22 +34,24 @@ $mostrar = $consulta->fetchAll();
   .buton {background-color: #1B83AD; color: #FFFFFF;}
   .buton:hover{background: #047e69; color: #FFFFFF;}
   .modalh{background-color: #1B83AD; color: #FFFFFF;}
+  .buton1 {background-color: #1B83AD; color: #FFFFFF;}
+  .buton1:hover{background: #1b84adab; color: #FFFFFF;}
 </style>
 <body class="bg-dark-subtle">
 
 <div class="container-fluid">
 <div class="row">
-<div class="col-9">
+<div class="col-md-9">
 <!-- Barra de Navegación  -->
     <nav style="background-color: #1B83AD;" >
       <div class="pb-0 w-100 img-flex ratio-1x1" ><img src="imagen/srat.png" alt="logo" style="margin-left: 250px;" ></div>
-      <div class="nav nav-pills" id="pills-tab" role="tablist" style="margin-left: 140px;">
-          <button class="nav-link btn btn-outline-info shadow p-2 rounded mx-2" style="color: #FFFFFF;" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Asistencia Técnica Programada</button>
-          <button class="nav-link btn btn-outline-info shadow p-2 rounded mx-2" style="color: #FFFFFF;" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Asistencia Técnica Solicitada</button>
-          <button class="nav-link btn btn-outline-info shadow p-2 rounded mx-2" style="color: #FFFFFF;" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Informe Técnico de Mantenimiento</button>
-      </div>
     </nav>
-    <div class="tab-content" id="nav-tabContent">
+      <div class="nav nav-pills mt-3" id="pills-tab" role="tablist" style="margin-left: 140px;">
+          <button class="nav-link btn buton1 shadow p-2 rounded mx-2" style="color: #FFFFFF;" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Asistencia Técnica Programada</button>
+          <button class="nav-link btn buton1 shadow p-2 rounded mx-2" style="color: #FFFFFF;" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Asistencia Técnica Solicitada</button>
+          <button class="nav-link btn buton1 shadow p-2 rounded mx-2" style="color: #FFFFFF;" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Informe Técnico de Mantenimiento</button>
+      </div>
+    <div class="tab-content mt-2" id="nav-tabContent">
       <div class="tab-pane fade" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
 <!-- Tabla 1: Asistencia Técnica Programada -->
         <table class="table">
@@ -82,9 +84,11 @@ $mostrar = $consulta->fetchAll();
           </tbody>
         </table>
         <!-- Button trigger Modal-Asistencia Programada ADD -->
-        <button type="button" class="buton btn w-25 mx-auto" data-bs-toggle="modal" data-bs-target="#Modal_asistencia_p">
+        <div class="col-md-10" style="margin-left: 400px;">
+        <button type="button" class="buton1 btn w-25 " data-bs-toggle="modal" data-bs-target="#Modal_asistencia_p">
           Nueva Asistencia
         </button>
+        </div>
       </div>
 
       <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
