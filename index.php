@@ -126,7 +126,7 @@ if($_POST){
             </tr>
           </thead>
           <tbody class="table-group-divider">
-            <?php foreach($mostrar as $dato) ?>
+            <?php foreach($mostrar as $dato): ?>
             <tr>
               <th class="text-center" scope="row"><?php echo $dato['nro_p']?></th>
               <td class="text-center"><?php echo $dato['dependencia']?></td>
@@ -169,7 +169,7 @@ if($_POST){
             </tr>
           </thead>
           <tbody class="table-group-divider">
-            <?php foreach($mostrar_it as $dato_it) ?>
+            <?php foreach($mostrar_it as $dato_it): ?>
             <tr>
               <th class="text-center" scope="row"><?php echo $dato_it['nro_p']?></th>
               <td class="text-center"><?php echo $dato_it['dependencia']?></td>
