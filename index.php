@@ -8,16 +8,6 @@ $consulta_p = $pdo->prepare($sql_p);
 $consulta_p->execute();
 $mostrar_p = $consulta_p->fetchAll();
 
-//consulta para leer datos de las tablas: items, asistencia_s, informe
-$sql = 'SELECT ITM.nro_p, ITM.dependencia, ITM.diagnostico_act, ITM.obs_sugerencias, ATS.falla, ATS.fecha_r, INF.motivo, INF.fecha_c
-        FROM items ITM
-        INNER JOIN asistencia_s ATS ON ITM.id_as = ATS.id_as
-        INNER JOIN informe INF ON ITM.id_if = INF.id_if';
-$consulta = $pdo->prepare($sql);
-$consulta->execute();
-$mostrar = $consulta->fetchAll();
-// var_dump($mostrar, $mostrar_p);
-$mostrar_it = $mostrar;
 // Añadir datos a la tabla asistencia_p
 if($_POST){
   $nro_pp = $_POST['nro_pp'];
@@ -33,6 +23,17 @@ if($_POST){
 
   header("Location: index.php");
 }
+
+//consulta para leer datos de las tablas: items, asistencia_s, informe
+$sql = 'SELECT ITM.nro_p, ITM.dependencia, ITM.diagnostico_act, ITM.obs_sugerencias, ATS.falla, ATS.fecha_r, INF.motivo, INF.fecha_c
+        FROM items ITM
+        INNER JOIN asistencia_s ATS ON ITM.id_as = ATS.id_as
+        INNER JOIN informe INF ON ITM.id_if = INF.id_if';
+$consulta = $pdo->prepare($sql);
+$consulta->execute();
+$mostrar = $consulta->fetchAll();
+// var_dump($mostrar, $mostrar_p);
+$mostrar_it = $mostrar;
 
 ?>
 
@@ -330,11 +331,11 @@ if($_POST){
         <form class="row g-4">
           <div class="col-md-5 text-center mx-auto">
             <label for="validationNro_planilla_SI" class="form-label fw-semibold">Nro.Planilla</label>
-            <input type="text" class="form-control" placeholder="ejmp: S015" id="validationNro_planilla_SI" value="" required>
+            <input type="text" class="form-control" placeholder="ejmp: S015" name="" id="validationNro_planilla_SI" required>
           </div>
           <div class="col-md-5 text-center mx-auto">
             <label for="validationDepartamento_SI" class="form-label fw-semibold">Departamento</label>
-            <select class="form-select" id="validationDepartamento_SI" required>
+            <select class="form-select" name="" id="validationDepartamento_SI" required>
               <option class="fw-light fst-italic" selected disabled value="">Seleccionar Departamento</option>
               <option>U.A.I</option>
               <option>O.A.C</option>
@@ -352,27 +353,27 @@ if($_POST){
           </div>
           <div class="col-md-5 mt-4 text-center mx-auto">
             <label for="validationFecha_r_SI" class="form-label fw-semibold">Fch.Recibido</label>
-            <input type="text" class="form-control" placeholder="dd/mm/aa" id="validationFecha_r_SI" value="" required>
+            <input type="text" class="form-control" placeholder="aa/mm/dd" name="" id="validationFecha_r_SI" required>
           </div>
           <div class="col-md-5 mt-4 text-center mx-auto">
             <label for="validationfecha_c_SI" class="form-label fw-semibold">Fch.Corrección</label>
-            <input type="text" class="form-control" placeholder="dd/mm/aa" id="validationfecha_c_SI" value="" required>
+            <input type="text" class="form-control" placeholder="aa/mm/dd" name="" id="validationfecha_c_SI" required>
           </div>
           <div class="col-md-6 mt-4 text-center">
             <label for="validation_Falla" class="form-label fw-semibold">Falla</label>
-            <textarea type="text" class="form-control" placeholder="Indique la/s fallas..." id="validation_Falla" rows="3" required></textarea>
+            <textarea type="text" class="form-control" placeholder="Indique la/s fallas..." name="" id="validation_Falla" rows="3" required></textarea>
           </div>
           <div class="col-md-6 mt-4 text-center">
             <label for="validation_Motivo" class="form-label fw-semibold">Motivo</label>
-            <textarea type="text" class="form-control" placeholder="Describa el/los Motivos..." id="validation_Motivo" rows="3" required></textarea>
+            <textarea type="text" class="form-control" placeholder="Describa el/los Motivos..." name="" id="validation_Motivo" rows="3" required></textarea>
           </div>
           <div class="col-md-6 mt-4 text-center">
             <label for="validationDiagnostico_Act" class="form-label fw-semibold">Diagnostico/Act.Realizadas</label>
-            <textarea type="text" class="form-control" placeholder="Describa el diagnostico y actividades realizadas..." id="validationDiagnostico_Act" rows="3" required></textarea>
+            <textarea type="text" class="form-control" placeholder="Describa el diagnostico y actividades realizadas..." name="" id="validationDiagnostico_Act" rows="3" required></textarea>
           </div>
           <div class="col-md-6 mt-4 text-center">
             <label for="validationObs_Sugerencias" class="form-label fw-semibold">Obs/Sugerencias</label>
-            <textarea type="text" class="form-control" placeholder="Indique las observaciones y sugerencias..." id="validationObs_Sugerencias" rows="3" required></textarea>
+            <textarea type="text" class="form-control" placeholder="Indique las observaciones y sugerencias..." name="" id="validationObs_Sugerencias" rows="3" required></textarea>
           </div>
           <div class="col-md-12 mt-4 mx-auto w-75">
             <button class="buton btn w-100 mx-auto" style="  border: 0;" type="submit">Agregar</button>
