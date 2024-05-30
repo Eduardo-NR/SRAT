@@ -47,37 +47,38 @@ if(isset($_POST['agregar'])){
   $enviar_s = $pdo->prepare($añadir_s);
   $enviar_s->execute(array($falla, $fecha_r));
   $id_as = $pdo->lastInsertId();
-}
-
-if($enviar_s==true){
-  $añadir_i = 'INSERT INTO informe (motivo, fecha_c) VALUE (?,?)';
-  $enviar_i = $pdo->prepare($añadir_s);
-  $enviar_i->execute(array($falla, $fecha_r));
-  $id_if = $pdo->lastInsertId(); 
+  
+  if($enviar_s==true){
+    $añadir_i = 'INSERT INTO informe (motivo, fecha_c) VALUE (?,?)';
+    $enviar_i = $pdo->prepare($añadir_i);
+    $enviar_i->execute(array($motivo, $fecha_c));
+    $id_if = $pdo->lastInsertId(); 
+    
+    if ($enviar_i==true) {
+      $añadir_it = 'INSERT INTO items (nro_p, dependencia, diagnostico_act, obs_sugerencias, id_as, id_if) VALUE (?,?,?,?,?,?)';
+      $enviar_it = $pdo->prepare($añadir_it);
+      $enviar_it->execute(array($nro_p, $dependencia, $diagnostico_act, $obs_sugerencias, $id_as, $id_if));
+      
+      if ($enviar_it==true) {
+        header("Location: index.php");
+      }
+    }
   }
-
-if ($enviar_i) {
-  $añadir_it = 'INSERT INTO items (nro_p, dependencia, diagnostico_act, obs_sugerencias, id_as, id_if) VALUE (?,?,?,?,)';
-  $enviar_it = $pdo->prepare($añadir_s);
-  $enviar_it->execute(array($falla, $fecha_r));
 }
-
-  header("Location: index.php");
-
 
 ?>
 
 <!-- index del programa -->
 <!DOCTYPE html>
 <html lang="es">
-<!-- <head>
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <title>SRAT</title>
-</head> -->
+</head>
 <style>
   .buton {background-color: #1B83AD; color: #FFFFFF;}
   .buton:hover{background: #047e69; color: #FFFFFF;}
