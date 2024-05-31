@@ -18,9 +18,9 @@ $mostrar_it = $mostrar;
 
 if($_GET){
   $id_ap = $_GET['id_ap'];
-
+  
   $sql_edit_p = 'SELECT * FROM asistencia_p WHERE id_ap=?';
-  $consulta_edit_edit_p = $pdo->prepare($sql_edit_p);
+  $consulta_edit_p = $pdo->prepare($sql_edit_p);
   $consulta_edit_p->execute(array($id_ap));
   $mostrar_edit_p = $consulta_edit_p->fetch();
     var_dump($mostrar_edit_p);
@@ -85,10 +85,9 @@ if($_GET){
               <td class="text-center"><?php echo $dato_p['fecha_cp']?></td>
               <td>
             <!-- Button trigger Modal Edit-Asistencia Técnica Programada -->
-              <i class="bi bi-pencil-square btn btn-outline-primary shadow" data-bs-toggle="modal" data-bs-target="#EditModal_asistencia_p"></i>
+              <a href="index_edit_p.php?id_ap=<?php echo $mostrar_edit_p['id_p'] ?>"><i class="bi bi-pencil-square "></i></a>
             <!-- Button Eliminar Asistencia Programada -->
               <i class="bi bi-file-earmark-x btn btn-outline-danger shadow"></i>
-              <a href="index_ep.php?id_ap"=<?php echo $dato_p['id_ap'] ?>>link</a>
               </td>
             </tr>
             <?php endforeach ?>    
@@ -172,7 +171,7 @@ if($_GET){
               <td class="text-center"><?php echo $dato_it['fecha_c']?></td>
               <td>
           <!-- Button trigger Modal Edit-Asistencia Solicitada e Informe Técnico -->
-                <i class="bi bi-pencil-square btn btn-outline-primary shadow" data-bs-toggle="modal" data-bs-target="#EditModal_SI"></i>
+                <i class="bi bi-pencil-square btn btn-outline-primary shadow" data-bs-toggle="modal" data-bs-target="#EditModal_asistencia_p"></i>
           <!-- Button Eliminar Asistencia Programada -->
                 <i class="bi bi-file-earmark-x btn btn-outline-danger shadow"></i>
               </td>
