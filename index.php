@@ -7,6 +7,7 @@ $sql_p = 'SELECT * FROM asistencia_p';
 $consulta_p = $pdo->prepare($sql_p);
 $consulta_p->execute();
 $mostrar_p = $consulta_p->fetchAll();
+//var_dump($mostrar_p);
 
 //consulta para leer datos de las tablas: items, asistencia_s, informe
 $sql = 'SELECT * FROM items ITM INNER JOIN asistencia_s ATS ON ITM.id_as = ATS.id_as INNER JOIN informe INF ON ITM.id_if = INF.id_if';
@@ -16,18 +17,9 @@ $mostrar = $consulta->fetchAll();
 $mostrar_it = $mostrar;
 //var_dump($mostrar);
 
-if($_GET){
-  $id_ap = $_GET['id_ap'];
-
-  $sql_edit_p = 'SELECT * FROM asistencia_p WHERE id_ap=?';
-  $consulta_edit_edit_p = $pdo->prepare($sql_edit_p);
-  $consulta_edit_p->execute(array($id_ap));
-  $mostrar_edit_p = $consulta_edit_p->fetch();
-    var_dump($mostrar_edit_p);
-}
 ?>
 
-<!-- index del programa -->
+<!-- html del programa -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -85,10 +77,9 @@ if($_GET){
               <td class="text-center"><?php echo $dato_p['fecha_cp']?></td>
               <td>
             <!-- Button trigger Modal Edit-Asistencia Técnica Programada -->
-              <i class="bi bi-pencil-square btn btn-outline-primary shadow" data-bs-toggle="modal" data-bs-target="#EditModal_asistencia_p"></i>
+            <a href="index_ep.php?id_ap=<?php echo $dato_p['id_ap']?>"><i class="bi bi-pencil-square btn btn-outline-primary shadow"></i></a>
             <!-- Button Eliminar Asistencia Programada -->
               <i class="bi bi-file-earmark-x btn btn-outline-danger shadow"></i>
-              <a href="index_ep.php?id_ap"=<?php echo $dato_p['id_ap'] ?>>link</a>
               </td>
             </tr>
             <?php endforeach ?>    
