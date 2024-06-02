@@ -9,7 +9,7 @@ $consulta_p->execute();
 $mostrar_p = $consulta_p->fetchAll();
 
 //consulta para leer datos de las tablas: items, asistencia_s, informe.
-$sql = 'SELECT ITM.nro_p, ITM.dependencia, ITM.diagnostico_act, ITM.obs_sugerencias, ATS.falla, ATS.fecha_r, INF.motivo, fecha_c
+$sql = 'SELECT ITM.nro_p, ITM.dependencia, ITM.diagnostico_act, ITM.obs_sugerencias, ATS.falla, ATS.fecha_r, INF.motivo, INF.fecha_c
         FROM items ITM
         INNER JOIN asistencia_s ATS ON ITM.id_as = ATS.id_as
         INNER JOIN informe INF ON ITM.id_if = INF.id_if';

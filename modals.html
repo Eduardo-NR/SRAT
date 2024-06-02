@@ -9,8 +9,9 @@
     <title>Document</title>
 </head>
 <style>
+  .buton {background-color: #1B83AD; color: #FFFFFF;}
   .buton:hover{background: #047e69; color: #FFFFFF;}
-  .buton{background-color: #1B83AD; color: #FFFFFF;}
+  .modalh{background-color: #1B83AD; color: #FFFFFF;}
 </style>
 
 <body  class="bg-dark-subtle">
@@ -22,7 +23,7 @@
   <div class="modal fade" id="Modal_asistencia_p" data-bs-backdrop="static" tabindex="-1" aria-labelledby="Modal_Label_p" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable modal-md">
       <div class="modal-content">
-        <div class="modal-header" style="background-color: #1B83AD; color: #FFFFFF;">
+        <div class="modal-header modalh">
           <h1 class="modal-title fs-5 mx-auto" id="Modal_Label_p">Asistencia Técnica Programada</h1>
         </div>
         <div class="modal-body">
@@ -55,16 +56,16 @@
               <input type="text" class="form-control" placeholder="ejmp: 03" id="validationCtd_equipos" value="" required>
             </div>
             <div class="col-md-3 mt-4 text-center">
-              <label for="validationDefault03" class="form-label fw-semibold">Fch.Recibido</label>
-              <input type="text" class="form-control" placeholder="dd/mm/aa" id="validationDefault03" value="" required>
+              <label for="validationFecha_r" class="form-label fw-semibold">Fch.Recibido</label>
+              <input type="text" class="form-control" placeholder="dd/mm/aa" id="validationFecha_r" value="" required>
             </div>
             <div class="col-md-3 mt-4 text-center">
-              <label for="validationDefault02" class="form-label fw-semibold">Fch.Corrección</label>
-              <input type="text" class="form-control" placeholder="dd/mm/aa" id="validationDefault02" value="" required>
+              <label for="validationfecha_c" class="form-label fw-semibold">Fch.Corrección</label>
+              <input type="text" class="form-control" placeholder="dd/mm/aa" id="validationfecha_c" value="" required>
             </div>
             <div class="col-md-6 mt-4 text-center">
-              <label for="exampleFormControlTextarea1" class="form-label fw-semibold">Act.Ejecutadas</label>
-              <textarea type="text" class="form-control" placeholder="Describa las actividades ejecutadas..." id="exampleFormControlTextarea1" rows="3" required></textarea>
+              <label for="validationAct_ejec" class="form-label fw-semibold">Act.Ejecutadas</label>
+              <textarea type="text" class="form-control" placeholder="Describa las actividades ejecutadas..." id="validationAct_ejec" rows="3" required></textarea>
             </div>
             <div class="col-md-12 mt-4 mx-auto w-75">
               <button class="buton btn w-100 mx-auto" style="  border: 0;" type="submit">Agregar</button>
@@ -78,26 +79,133 @@
     </div>
   </div>
 
-  <!-- Trigger Edit Modal Asistencia Técnica Programada -->
+<!-- Button trigger Modal Edit-Asistencia Técnica Programada -->
   <i class="bi bi-pencil-square btn btn-outline-primary shadow" data-bs-toggle="modal" data-bs-target="#EditModal_asistencia_p"></i>
-  <!-- Modal-Asistencia Programada ADD -->
+<!-- Modal Edit-Asistencia Programada ADD -->
   <div class="modal fade" id="EditModal_asistencia_p" data-bs-backdrop="static" tabindex="-1" aria-labelledby="EditModal_Label_p" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header modalh">
           <h1 class="modal-title fs-5 mx-auto" id="EditModal_Label_p">Asistencia Técnica Programda</h1>
         </div>
         <div class="modal-body">
-          
+<!-- Formulario Edit Modal Asistencia Técnica Proramada -->
+          <form class="row g-3">
+            <div class="col-md-3 text-center">
+              <label for="validationEdit_Nro_planilla" class="form-label fw-semibold">Nro.Planilla</label>
+              <input type="text" class="form-control" placeholder="ejmp: S015" id="validationEdit_Nro_planilla" value="" required>
+            </div>
+            <div class="col-md-6 text-center">
+              <label for="validationEdit_Departamento" class="form-label fw-semibold">Departamento</label>
+              <select class="form-select" id="validationEdit_Departamento" required>
+                <option class="fw-light fst-italic" selected disabled value="">Seleccionar Departamento</option>
+                <option>U.A.I</option>
+                <option>O.A.C</option>
+                <option>R.R.H.H</option>
+                <option>D.C.A.D</option>
+                <option>D.C.A.C.O.P</option>
+                <option>Dirección Técnica</option>
+                <option>Dirección General</option>
+                <option>Servicios Jurídicos</option>
+                <option>Despacho Contralor</option>
+                <option>Dirección de Administración</option>
+                <option>Comunicación y Relaciones Públicas</option>
+                <option>Determinación de Responsabilidades</option>
+              </select>
+            </div>
+            <div class="col-md-3 text-center">
+              <label for="validationEdit_Ctd_equipos" class="form-label fw-semibold">Ctd.Equipos</label>
+              <input type="text" class="form-control" placeholder="ejmp: 03" id="validationEdit_Ctd_equipos" value="" required>
+            </div>
+            <div class="col-md-3 mt-4 text-center">
+              <label for="validationEdit_Fecha_r" class="form-label fw-semibold">Fch.Recibido</label>
+              <input type="text" class="form-control" placeholder="dd/mm/aa" id="validationEdit_Fecha_r" value="" required>
+            </div>
+            <div class="col-md-3 mt-4 text-center">
+              <label for="validationEdit_fecha_c" class="form-label fw-semibold">Fch.Corrección</label>
+              <input type="text" class="form-control" placeholder="dd/mm/aa" id="validationEdit_fecha_c" value="" required>
+            </div>
+            <div class="col-md-6 mt-4 text-center">
+              <label for="validationEdit_Act_ejec" class="form-label fw-semibold">Act.Ejecutadas</label>
+              <textarea type="text" class="form-control" placeholder="Describa las actividades ejecutadas..." id="validationEdit_Act_ejec" rows="3" required></textarea>
+            </div>
+            <div class="col-md-12 mt-4 mx-auto w-75">
+              <button class="buton btn w-100 mx-auto" style="  border: 0;" type="submit">Editar</button>
+            </div>
+          </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-outline-success">Editar</button>
         </div>
       </div>
     </div>
   </div>
 
+
+
+ <!-- Button trigger Modal-Asistencia Solicitada e Informe Técnico ADD -->
+ <button type="button" class="btn btn-outline-primary shadow" data-bs-toggle="modal" data-bs-target="#Modal_SI">
+  Nueva Asiatencia
+</button>
+<!-- Modal-Asistencia Solicitada e Informe Técnico ADD -->
+<div class="modal fade" id="Modal_SI" data-bs-backdrop="static" tabindex="-1" aria-labelledby="Modal_Label_SI" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-md">
+    <div class="modal-content">
+      <div class="modal-header modalh">
+        <h1 class="modal-title fs-5 mx-auto" id="Modal_Label_p">Asistencia Técnica Programada</h1>
+      </div>
+      <div class="modal-body">
+<!-- Formulario para envio de informacion - Asistencia Programada -->
+        <form class="row g-3">
+          <div class="col-md-3 text-center">
+            <label for="validationNro_planilla" class="form-label fw-semibold">Nro.Planilla</label>
+            <input type="text" class="form-control" placeholder="ejmp: S015" id="validationNro_planilla" value="" required>
+          </div>
+          <div class="col-md-6 text-center">
+            <label for="validationDepartamento" class="form-label fw-semibold">Departamento</label>
+            <select class="form-select" id="validationDepartamento" required>
+              <option class="fw-light fst-italic" selected disabled value="">Seleccionar Departamento</option>
+              <option>U.A.I</option>
+              <option>O.A.C</option>
+              <option>R.R.H.H</option>
+              <option>D.C.A.D</option>
+              <option>D.C.A.C.O.P</option>
+              <option>Dirección Técnica</option>
+              <option>Dirección General</option>
+              <option>Servicios Jurídicos</option>
+              <option>Despacho Contralor</option>
+              <option>Dirección de Administración</option>
+              <option>Comunicación y Relaciones Públicas</option>
+              <option>Determinación de Responsabilidades</option>
+            </select>
+          </div>
+          <div class="col-md-3 text-center">
+            <label for="validationCtd_equipos" class="form-label fw-semibold">Ctd.Equipos</label>
+            <input type="text" class="form-control" placeholder="ejmp: 03" id="validationCtd_equipos" value="" required>
+          </div>
+          <div class="col-md-3 mt-4 text-center">
+            <label for="validationFecha_r" class="form-label fw-semibold">Fch.Recibido</label>
+            <input type="text" class="form-control" placeholder="dd/mm/aa" id="validationFecha_r" value="" required>
+          </div>
+          <div class="col-md-3 mt-4 text-center">
+            <label for="validationfecha_c" class="form-label fw-semibold">Fch.Corrección</label>
+            <input type="text" class="form-control" placeholder="dd/mm/aa" id="validationfecha_c" value="" required>
+          </div>
+          <div class="col-md-6 mt-4 text-center">
+            <label for="validationAct_ejec" class="form-label fw-semibold">Act.Ejecutadas</label>
+            <textarea type="text" class="form-control" placeholder="Describa las actividades ejecutadas..." id="validationAct_ejec" rows="3" required></textarea>
+          </div>
+          <div class="col-md-12 mt-4 mx-auto w-75">
+            <button class="buton btn w-100 mx-auto" style="  border: 0;" type="submit">Agregar</button>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div> 
 
 
 <script src="js/bootstrap.bundle.js"></script>
