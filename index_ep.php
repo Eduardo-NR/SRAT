@@ -2,12 +2,6 @@
 //conexion a la base de datos
 include_once ('php_conexion/conexion.php');
 
-//consulta para leer datos de la tabla asistencia_p
-$sql_p = 'SELECT * FROM asistencia_p';
-$consulta_p = $pdo->prepare($sql_p);
-$consulta_p->execute();
-$mostrar_p = $consulta_p->fetchAll();
-
 //consulta para leer datos que se editaran en la tabla asistencia_p
 if($_GET){
   $id_ap = $_GET['id_ap'];
@@ -48,7 +42,7 @@ if($_GET){
       <div class="pb-0 w-100 img-flex ratio-1x1" ><img src="imagen/srat.png" alt="logo" style="margin-left: 250px;" ></div>
     </nav>
       
-    <div class="row mt-4">
+    <div class="row my-4">
       <div class="col-md-3"></div>
       <div class="col-6 text-center">   
         <div class="card shadow">
@@ -62,8 +56,8 @@ if($_GET){
             </div>
             <div class="col-md-5 text-center">
               <label for="validationEdit_Departamento" class="form-label fw-semibold">Departamento</label>
-              <select class="form-select" name="dependencia_p" value="<?php echo $mostrar_edit_p['dependencia_p']?>" id="validationEdit_Departamento" required>
-                <option class="fw-light fst-italic" selected disabled value="">Seleccionar Departamento</option>
+              <select class="form-select" name="dependencia_p" id="validationEdit_Departamento" required>
+                <option class="fw-light fst-italic" selected disabled value=""><?php echo $mostrar_edit_p['dependencia_p']?></option>
                 <option>U.A.I</option>
                 <option>O.A.C</option>
                 <option>R.R.H.H</option>
@@ -92,9 +86,9 @@ if($_GET){
             </div>
             <div class="col-md-6 mt-4 text-center">
               <label for="validationEdit_Act_ejec" class="form-label fw-semibold">Act.Ejecutadas</label>
-              <textarea type="text" class="form-control" name="act_ejecutadas" value="<?php echo $mostrar_edit_p['act_ejecutadas']?>" placeholder="Describa las actividades ejecutadas..." id="validationEdit_Act_ejec" rows="3" required></textarea>
+              <textarea type="text" class="form-control" name="act_ejecutadas" placeholder="Describa las actividades ejecutadas..." id="validationEdit_Act_ejec" rows="3" required><?php echo $mostrar_edit_p['act_ejecutadas']?></textarea>
             </div>
-              <input type="text" name="id_ap" value="<?php echo $mostrar_edit_p['id_ap']?>" required>
+              <input type="hidden" name="id_ap" value="<?php echo $mostrar_edit_p['id_ap']?>" required>
             <div class="col-md-12 mt-4 mx-auto w-75">
               <button class="buton btn w-100 mx-auto" name="editar_p" style="  border: 0;" type="submit">Editar</button>
             </div>
