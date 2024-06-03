@@ -57,7 +57,7 @@ if($_GET){
             <div class="col-md-5 text-center">
               <label for="validationEdit_Departamento" class="form-label fw-semibold">Departamento</label>
               <select class="form-select" name="dependencia_p" id="validationEdit_Departamento" required>
-                <option class="fw-light fst-italic" selected disabled value=""><?php echo $mostrar_edit_p['dependencia_p']?></option>
+                <option class="fw-light fst-italic" selected><?php echo $mostrar_edit_p['dependencia_p']?></option>
                 <option>U.A.I</option>
                 <option>O.A.C</option>
                 <option>R.R.H.H</option>

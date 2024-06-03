@@ -10,13 +10,13 @@ include_once ('../php_conexion/conexion.php');
 
 //Sentencia SQL para eliminar datos de la tabla asistencia_s
     if ($eliminar_s == true){
-        $preparar_i = 'DELETE FROM asistencia_s WHERE id_if=?';
+        $preparar_i = 'DELETE FROM informe WHERE id_if=?';
         $eliminar_i = $pdo->prepare($preparar_i);
         $eliminar_i->execute(array($id_si));
 
 //Sentencia SQL para eliminar datos de la tabla asistencia_s
         if ($eliminar_i == true){
-            $preparar_it = 'DELETE FROM asistencia_s WHERE id_if=?';
+            $preparar_it = 'DELETE FROM items WHERE id_items=?';
             $eliminar_it = $pdo->prepare($preparar_it);
             $eliminar_it->execute(array($id_si));
 
