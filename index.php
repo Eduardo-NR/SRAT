@@ -150,10 +150,10 @@ $mostrar = $consulta->fetchAll();
         </table>
       </div>
     </div>
-<div class="row mt-4">
 
+<div class="row mt-4">
 <!-- Modal-Asistencia Programada ADD -->
-<div class="modal fade" id="Modal_asistencia_p" data-bs-backdrop="static" tabindex="-1" aria-labelledby="Modal_Label_p" aria-hidden="true">
+  <div class="modal fade" id="Modal_asistencia_p" data-bs-backdrop="static" tabindex="-1" aria-labelledby="Modal_Label_p" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable modal-md">
       <div class="modal-content">
         <div class="modal-header modalh">
@@ -213,7 +213,7 @@ $mostrar = $consulta->fetchAll();
   </div>
 
 <!-- Modal Edit-Asistencia Programada -->
-<div class="modal fade" id="EditModal_asistencia_p" data-bs-backdrop="static" tabindex="-1" aria-labelledby="EditModal_Label_p" aria-hidden="true">
+  <div class="modal fade" id="EditModal_asistencia_p" data-bs-backdrop="static" tabindex="-1" aria-labelledby="EditModal_Label_p" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header modalh">
@@ -273,7 +273,7 @@ $mostrar = $consulta->fetchAll();
   </div>
 
 <!-- carousel -->
-<div class="col-7">   
+  <div class="col-7">   
     <div id="carouselExampleInterval" class="carousel slide " data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active" data-bs-interval="3000">
@@ -299,9 +299,9 @@ $mostrar = $consulta->fetchAll();
           </div>
         </div>
       </div>
-</div> 
+  </div> 
 <!-- cards informativas -->
-<div class="col-5">
+  <div class="col-5">
   <div class="row">
     <div class="col-sm-6 mb-3 mb-sm-0">
       <div class="card">
@@ -322,11 +322,12 @@ $mostrar = $consulta->fetchAll();
       </div>
     </div>
   </div>
+  </div>
 </div>
-</div>
-</div>    
-<!-- leyenda -->
+</div>  
+
 <div class="col-3">
+<!-- leyenda -->
     <div class="card" style="width: 18rem;">
         <img src="imagen/Logo DT.png" class="card-img-top shadow" alt="...">
         <div class="card-body">
@@ -337,8 +338,7 @@ $mostrar = $consulta->fetchAll();
     </div>   
 </div>    
 </div>
-</div>
-</div>  
+</div> 
 
 
 
