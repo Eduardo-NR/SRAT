@@ -43,7 +43,7 @@ $mostrar = $consulta->fetchAll();
 <!-- Barra de Navegación  -->
     <nav style="background-color: #1B83AD;" >
       <div class="pb-0 w-100 img-flex ratio-1x1" ><img src="imagen/srat.png" alt="logo" style="margin-left: 250px;" ></div>
-      <div class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+      <div class="nav nav-pills" id="pills-tab" role="tablist" style="margin-left: 140px;">
           <button class="nav-link btn btn-outline-info shadow p-2 rounded mx-2" style="color: #FFFFFF;" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Asistencia Técnica Programada</button>
           <button class="nav-link btn btn-outline-info shadow p-2 rounded mx-2" style="color: #FFFFFF;" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Asistencia Técnica Solicitada</button>
           <button class="nav-link btn btn-outline-info shadow p-2 rounded mx-2" style="color: #FFFFFF;" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Informe Técnico de Mantenimiento</button>
@@ -82,7 +82,7 @@ $mostrar = $consulta->fetchAll();
           </tbody>
         </table>
         <!-- Button trigger Modal-Asistencia Programada ADD -->
-        <button type="button" class="buton btn w-50 mx-auto" data-bs-toggle="modal" data-bs-target="#Modal_asistencia_p">
+        <button type="button" class="buton btn w-25 mx-auto" data-bs-toggle="modal" data-bs-target="#Modal_asistencia_p">
           Nueva Asistencia
         </button>
       </div>
