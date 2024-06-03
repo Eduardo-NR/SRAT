@@ -81,7 +81,7 @@ $mostrar_it = $mostrar;
             <!-- Button de redirrecion a index_ep.php -->
               <a href="index_ep.php?id_ap=<?php echo $dato_p['id_ap']?>"><i class="bi bi-pencil-square btn btn-outline-primary shadow"></i></a>
             <!-- Button Eliminar Asistencia Programada -->
-              <i class="bi bi-file-earmark-x btn btn-outline-danger shadow"></i>
+              <a href="php_eliminar/eliminar_p.php?id_ap=<?php echo $dato_p['id_ap']?>"><i class="bi bi-file-earmark-x btn btn-outline-danger shadow"></i></a>
               </td>
             </tr>
             <?php endforeach ?>    
@@ -124,7 +124,7 @@ $mostrar_it = $mostrar;
             <!-- Button de redirrecion a index_esi.php -->
                 <a href="index_esi.php?id_si=<?php echo $dato['id_items']?>"><i class="bi bi-pencil-square btn btn-outline-primary shadow"></i></a>
             <!-- Button Eliminar Asistencia Solicitada e Informe Técnico -->
-                <i class="bi bi-file-earmark-x btn btn-outline-danger shadow"></i>
+                <a href="php_eliminar/eliminar_si.php?id_si=<?php echo $dato['id_items']?>"><i class="bi bi-file-earmark-x btn btn-outline-danger shadow"></i></a>
               </td>
             </tr>
             <?php endforeach ?>
@@ -167,7 +167,7 @@ $mostrar_it = $mostrar;
             <!-- Button de redirrecion a index_esi.php -->
                 <a href="index_esi.php?id_si=<?php echo $dato_it['id_items']?>"><i class="bi bi-pencil-square btn btn-outline-primary shadow"></i></a>
             <!-- Button Eliminar Asistencia Solicitada e Informe Técnico -->
-                <i class="bi bi-file-earmark-x btn btn-outline-danger shadow"></i>
+                <a href="php_eliminar/eliminar_si.php?id_si=<?php echo $dato['id_items']?>"><i class="bi bi-file-earmark-x btn btn-outline-danger shadow"></i></a>
               </td>
             </tr>
             <?php endforeach ?>
@@ -251,7 +251,7 @@ $mostrar_it = $mostrar;
       </div>
       <div class="modal-body">
     <!-- Formulario para envio de informacion-Asistencia Soliocitada e Informe Técnico -->
-        <form class="row g-4" method="POST" action="php_agregar/agregar_sif.php">
+        <form class="row g-4" method="POST" action="php_agregar/agregar_si.php">
           <div class="col-md-5 text-center mx-auto">
             <label for="validationNro_planilla_SI" class="form-label fw-semibold">Nro.Planilla</label>
             <input type="text" class="form-control" placeholder="ejmp: S015" name="nro_p" id="validationNro_planilla_SI" required>

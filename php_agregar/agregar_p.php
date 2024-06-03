@@ -17,5 +17,5 @@ if(isset($_POST['agregar_p'])){
     $enviar_p->execute(array($nro_pp, $dependencia_p, $ctd_equipos, $act_ejecutadas, $fecha_rp, $fecha_cp));
   
 //redireccion al index
-    header("Location: ../index.php");
+    header('Location: ../index.php');
   }

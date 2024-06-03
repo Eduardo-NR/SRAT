@@ -33,7 +33,7 @@ if(isset($_POST['agregar'])){
         
 //redireccion al index
         if ($enviar_it==true) {
-          header("Location: ../index.php");
+          header('Location: ../index.php');
         }
       }
     }

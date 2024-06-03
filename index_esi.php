@@ -13,7 +13,7 @@ if($_GET){
   $consulta_edit_si = $pdo->prepare($sql_edit_si);
   $consulta_edit_si->execute(array($id_si));
   $mostrar_edit_si = $consulta_edit_si->fetch();
-  var_dump($mostrar_edit_si);
+  //var_dump($mostrar_edit_si);
 }
 ?>
 

@@ -17,4 +17,4 @@ include_once ('../php_conexion/conexion.php');
     $editar_p->execute(array($nro_pp, $dependencia_p, $ctd_equipos, $act_ejecutadas, $fecha_rp, $fecha_cp, $id_ap));
     
     //Redireccion a index
-    header("Location: ../index.php");
+    header('Location: ../index.php');

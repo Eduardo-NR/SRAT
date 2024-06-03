@@ -32,7 +32,7 @@ if(isset($_POST['editar_si'])){
         
 //redireccion al index
         if ($editar_it==true) {
-          header("Location: ../index.php");
+          header('Location: ../index.php');
         }
       }
     }
