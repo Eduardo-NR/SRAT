@@ -6,7 +6,8 @@ include_once ('php_conexion/conexion.php');
 $sql_p = 'SELECT * FROM asistencia_p';
 $consulta_p = $pdo->prepare($sql_p);
 $consulta_p->execute();
-$mostrar_p = $consulta_p->fetchAll();
+$mostrar_p = $consulta_p->rowCount();
+$por_pagina_p = 7;
 //var_dump($mostrar_p);
 
 //consulta para leer datos de las tablas: items, asistencia_s, informe
@@ -43,7 +44,7 @@ $mostrar_it = $mostrar;
 
 <div class="container-fluid">
 <div class="row">
-<div class="col-md-9">
+<div class="col-md-9" action="">
 <!-- Barra de Navegación  -->
     <nav style="background-color: #1B83AD;" >
       <div class="pb-0 w-100 img-flex ratio-1x1" ><img src="imagen/srat.png" alt="logo" style="margin-left: 250px;" ></div>
