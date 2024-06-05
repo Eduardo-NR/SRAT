@@ -1,24 +1,54 @@
 <?php 
+
 //conexion a la base de datos
-include_once ('php_conexion/conexion.php');
+include_once('php_conexion/conexion.php');
 
 //consulta para leer datos de la tabla asistencia_p
 $sql_p = 'SELECT * FROM asistencia_p';
 $consulta_p = $pdo->prepare($sql_p);
 $consulta_p->execute();
-$mostrar_p = $consulta_p->rowCount();
-$por_pagina_p = 7;
-//var_dump($mostrar_p);
+// Registros totales para paginación(Asistencia Programada)
+$total_registros_p = $consulta_p->rowCount(); 
+// Numero de elementos por pagina (Asistencia Programada)
+$por_pagina_p = 8; 
+// Paginas Totales (Asistencia Programada)
+$total_paginas_p = ceil($total_registros_p / $por_pagina_p); 
 
 //consulta para leer datos de las tablas: items, asistencia_s, informe
 $sql = 'SELECT * FROM items ITM 
-  INNER JOIN asistencia_s ATS ON ITM.id_as = ATS.id_as 
-  INNER JOIN informe INF ON ITM.id_if = INF.id_if';
+INNER JOIN asistencia_s ATS ON ITM.id_as = ATS.id_as 
+INNER JOIN informe INF ON ITM.id_if = INF.id_if';
 $consulta = $pdo->prepare($sql);
 $consulta->execute();
-$mostrar = $consulta->fetchAll();
+// Registros totales para paginación (Asistencia Solicitada)
+
+$total_registros = $consulta->rowCount(); 
+// Número de elementos por pagina (Asistencia Solicitada)
+$por_pagina = 8; 
+// Paginas Totales (Asistencia Solicitada)
+$total_paginas = ceil($total_registros / $por_pagina); 
+ 
+// Obtener el número de página actual de la URL (if available)
+$pagina = isset($_GET['pagina']) ? (int) $_GET['pagina'] : 1;
+
+// Limitar resultados segun la pagina actual
+$offset_p = ($pagina - 1) * $por_pagina_p; // compesacion para Asistencia Programada
+$offset = ($pagina - 1) * $por_pagina; // compesacion para Asistencia Solicitada
+
+// Limitar consulta para Asistencia Programada
+$limit_p = "SELECT * FROM asistencia_p LIMIT $offset_p, $por_pagina_p"; 
+$consulta_limit_p = $pdo->prepare($limit_p);
+$consulta_limit_p->execute();
+$mostrar_p = $consulta_limit_p->fetchAll();
+
+// Limitar consulta para Asistencia Solicitada
+$sql_limit = "SELECT * FROM items ITM 
+INNER JOIN asistencia_s ATS ON ITM.id_as = ATS.id_as 
+INNER JOIN informe INF ON ITM.id_if = INF.id_if LIMIT $offset, $por_pagina"; 
+$consulta_limit = $pdo->prepare($sql_limit);
+$consulta_limit->execute();
+$mostrar = $consulta_limit->fetchAll();
 $mostrar_it = $mostrar;
-//var_dump($mostrar);
 
 ?>
 
@@ -79,16 +109,43 @@ $mostrar_it = $mostrar;
               <td class="text-center"><?php echo $dato_p['fecha_rp']?></td>
               <td class="text-center"><?php echo $dato_p['fecha_cp']?></td>
               <td>
-            <!-- Button de redirrecion a index_ep.php -->
+          <!-- Button de redirrecion a index_ep.php -->
               <a href="index_ep.php?id_ap=<?php echo $dato_p['id_ap']?>"><i class="bi bi-pencil-square btn btn-outline-primary shadow"></i></a>
-            <!-- Button Eliminar Asistencia Programada -->
+          <!-- Button Eliminar Asistencia Programada -->
               <a href="php_eliminar/eliminar_p.php?id_ap=<?php echo $dato_p['id_ap']?>"><i class="bi bi-file-earmark-x btn btn-outline-danger shadow"></i></a>
               </td>
             </tr>
             <?php endforeach ?>    
           </tbody>
         </table>
-        <!-- Button trigger Modal-Asistencia Programada ADD -->
+        <tfoot>
+        <!-- Paginacion para Asistencia Programada -->
+          <nav aria-label="Page navigation example">
+            <ul class="pagination">
+          <!-- Boton anterior de la pagina en tabla Asistencia Programada -->
+              <li class="page-item <?php echo $_GET['pagina']<=1 ? 'disabled' : ''?>">
+                <a class="buton1 page-link" href="index.php?pagina=<?php echo $_GET['pagina']-1?>" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+          <!-- Boton numero de la pagina en tabla Asistencia Programada -->
+              <?php for ($i=0; $i < $total_paginas_p; $i++): ?>
+              <li class="page-item <?php echo $_GET['pagina']==$i+1 ? 'active' : '' ?>">
+                <a class="buton1 page-link" href="index.php?pagina=<?php echo $i+1 ?>">
+                  <?php echo $i+1 ?>
+                </a>
+              </li>
+              <?php endfor ?>
+          <!-- Boton siguiente de la pagina en tabla Asistencia Programada -->
+              <li class="page-item <?php echo $_GET['pagina']>=$total_paginas_p ? 'disabled' : ''?>">
+                <a class="buton1 page-link" href="index.php?pagina=<?php echo $_GET['pagina']+1?>" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </tfoot>
+    <!-- Button trigger Modal-Asistencia Programada ADD -->
         <div class="col-md-10" style="margin-left: 400px;">
          <button type="button" class="buton1 btn w-25" data-bs-toggle="modal" data-bs-target="#Modal_asistencia_p">
            Nueva Asistencia
@@ -122,15 +179,42 @@ $mostrar_it = $mostrar;
               <td class="text-center"><?php echo $dato['fecha_r']?></td>
               <td class="text-center"><?php echo $dato['fecha_c']?></td>
               <td>
-            <!-- Button de redirrecion a index_esi.php -->
+        <!-- Button de redirrecion a index_esi.php -->
                 <a href="index_esi.php?id_si=<?php echo $dato['id_items']?>"><i class="bi bi-pencil-square btn btn-outline-primary shadow"></i></a>
-            <!-- Button Eliminar Asistencia Solicitada e Informe Técnico -->
+        <!-- Button Eliminar Asistencia Solicitada e Informe Técnico -->
                 <a href="php_eliminar/eliminar_si.php?id_si=<?php echo $dato['id_items']?>"><i class="bi bi-file-earmark-x btn btn-outline-danger shadow"></i></a>
               </td>
             </tr>
             <?php endforeach ?>
           </tbody>
         </table> 
+        <tfoot>
+        <!-- Paginacion para Asistencia Solicitada -->
+          <nav aria-label="Page navigation example">
+            <ul class="pagination">
+          <!-- Boton anterior de la pagina en tabla Asistencia Solicitada -->
+              <li class="page-item <?php echo $_GET['pagina']<=1 ? 'disabled' : ''?>">
+                <a class="buton1 page-link" href="index.php?pagina=<?php echo $_GET['pagina']-1?>" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+          <!-- Boton numero de la pagina en tabla Asistencia Solicitada -->
+              <?php for ($i=0; $i < $total_paginas; $i++): ?>
+              <li class="page-item <?php echo $_GET['pagina']==$i+1 ? 'active' : '' ?>">
+                <a class="buton1 page-link" href="index.php?pagina=<?php echo $i+1 ?>">
+                  <?php echo $i+1 ?>
+                </a>
+              </li>
+              <?php endfor ?>
+          <!-- Boton siguiente de la pagina en tabla Asistencia Solicitada -->
+              <li class="page-item <?php echo $_GET['pagina']>=$total_paginas ? 'disabled' : ''?>">
+                <a class="buton1 page-link" href="index.php?pagina=<?php echo $_GET['pagina']+1?>" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </tfoot>
         <!-- Button trigger Modal-Asistencia Solicitada e Informe Técnico ADD -->
         <div class="col-md-10" style="margin-left: 400px;">
           <button type="button" class="buton1 btn w-25 shadow" data-bs-toggle="modal" data-bs-target="#Modal_SI">
@@ -174,6 +258,33 @@ $mostrar_it = $mostrar;
             <?php endforeach ?>
           </tbody>
         </table>
+        <tfoot>
+        <!-- Paginacion para Informe Técnico de Mantenimiento -->
+          <nav aria-label="Page navigation example">
+            <ul class="pagination">
+          <!-- Boton anterior de la pagina en tabla Informe Técnico de Mantenimiento -->
+              <li class="page-item <?php echo $_GET['pagina']<=1 ? 'disabled' : ''?>">
+                <a class="buton1 page-link" href="index.php?pagina=<?php echo $_GET['pagina']-1?>" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+          <!-- Boton numero de la pagina en tabla Informe Técnico de Mantenimiento -->
+              <?php for ($i=0; $i < $total_paginas; $i++): ?>
+              <li class="page-item <?php echo $_GET['pagina']==$i+1 ? 'active' : '' ?>">
+                <a class="buton1 page-link" href="index.php?pagina=<?php echo $i+1 ?>">
+                  <?php echo $i+1 ?>
+                </a>
+              </li>
+              <?php endfor ?>
+          <!-- Boton siguiente de la pagina en tabla Informe Técnico de Mantenimiento -->
+              <li class="page-item <?php echo $_GET['pagina']>=$total_paginas ? 'disabled' : ''?>">
+                <a class="buton1 page-link" href="index.php?pagina=<?php echo $_GET['pagina']+1?>" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </tfoot>
         <!-- Button trigger Modal-Asistencia Solicitada e Informe Técnico ADD -->
         <div class="col-md-10" style="margin-left: 400px;">
           <button type="button" class="buton1 btn w-25 shadow" data-bs-toggle="modal" data-bs-target="#Modal_SI">
