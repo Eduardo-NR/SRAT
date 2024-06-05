@@ -27,7 +27,7 @@ $total_registros = $consulta->rowCount();
 $por_pagina = 8; 
 // Paginas Totales (Asistencia Solicitada)
 $total_paginas = ceil($total_registros / $por_pagina); 
- 
+//  holi
 // Obtener el número de página actual de la URL (if available)
 $pagina = isset($_GET['pagina']) ? (int) $_GET['pagina'] : 1;
 
