@@ -27,7 +27,7 @@ $total_registros = $consulta->rowCount();
 $por_pagina = 8; 
 // Paginas Totales (Asistencia Solicitada)
 $total_paginas = ceil($total_registros / $por_pagina); 
-//  holi
+
 // Obtener el número de página actual de la URL (if available)
 $pagina = isset($_GET['pagina']) ? (int) $_GET['pagina'] : 1;
 
@@ -66,7 +66,7 @@ $mostrar_it = $mostrar;
 <style>
   .buton {background-color: #1B83AD; color: #FFFFFF;}
   .buton:hover{background: #047e69; color: #FFFFFF;}
-  .modalh{background-color: #1B83AD; color: #FFFFFF;}
+  .modalh {background-color: #1B83AD; color: #FFFFFF;}
   .buton1 {background-color: #1B83AD; color: #FFFFFF;}
   .buton1:hover{background: #1b84adab; color: #FFFFFF;}
 </style>
@@ -105,7 +105,11 @@ $mostrar_it = $mostrar;
               <th class="text-center" scope="row"><?php echo $dato_p['nro_pp']?></th>
               <td class=""><?php echo $dato_p['dependencia_p']?></td>
               <td class="text-center"><?php echo $dato_p['ctd_equipos']?></td>
-              <td class=""><?php echo $dato_p['act_ejecutadas']?></td>
+              <td><span type="button" class="d-inline-block text-truncate" style="max-width: 150px;" 
+                  data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="<?php echo $dato_p['act_ejecutadas']?>">
+                    <?php echo $dato_p['act_ejecutadas']?>
+                  </span>
+              </td>
               <td class="text-center"><?php echo $dato_p['fecha_rp']?></td>
               <td class="text-center"><?php echo $dato_p['fecha_cp']?></td>
               <td>
@@ -173,9 +177,21 @@ $mostrar_it = $mostrar;
             <tr>
               <th class="text-center" scope="row"><?php echo $dato['nro_p']?></th>
               <td class="text-center"><?php echo $dato['dependencia']?></td>
-              <td class=""><?php echo $dato['falla']?></td>
-              <td class=""><?php echo $dato['diagnostico_act']?></td>
-              <td class=""><?php echo $dato['obs_sugerencias']?></td>
+              <td><span type="button" class="d-inline-block text-truncate" style="max-width: 100px;" 
+                  data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="<?php echo $dato['falla']?>">
+                    <?php echo $dato['falla']?>
+                  </span>
+              </td>
+              <td><span type="button" class="d-inline-block text-truncate" style="max-width: 100px;" 
+                  data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="<?php echo $dato['diagnostico_act']?>">
+                    <?php echo $dato['diagnostico_act']?>
+                  </span>
+              </td>
+              <td><span type="button" class="d-inline-block text-truncate" style="max-width: 100px;" 
+                  data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="<?php echo $dato['obs_sugerencias']?>">
+                    <?php echo $dato['obs_sugerencias']?>
+                  </span>
+              </td>
               <td class="text-center"><?php echo $dato['fecha_r']?></td>
               <td class="text-center"><?php echo $dato['fecha_c']?></td>
               <td>
@@ -243,9 +259,21 @@ $mostrar_it = $mostrar;
             <tr>
               <th class="text-center" scope="row"><?php echo $dato_it['nro_p']?></th>
               <td class="text-center"><?php echo $dato_it['dependencia']?></td>
-              <td class=""><?php echo $dato_it['motivo']?></td>
-              <td class=""><?php echo $dato_it['diagnostico_act']?></td>
-              <td class=""><?php echo $dato_it['obs_sugerencias']?></td>
+              <td><span type="button" class="d-inline-block text-truncate" style="max-width: 100px;" 
+                  data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="<?php echo $dato['motivo']?>">
+                    <?php echo $dato_it['motivo']?>
+                  </span>
+              </td>
+              <td><span type="button" class="d-inline-block text-truncate" style="max-width: 100px;" 
+                  data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="<?php echo $dato['diagnostico_act']?>">
+                    <?php echo $dato_it['diagnostico_act']?>
+                  </span>
+              </td>
+              <td><span type="button" class="d-inline-block text-truncate" style="max-width: 100px;" 
+                  data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="<?php echo $dato['obs_sugerencias']?>">
+                    <?php echo $dato_it['obs_sugerencias']?>
+                  </span>
+              </td>
               <td class="text-center"><?php echo $dato_it['fecha_r']?></td>
               <td class="text-center"><?php echo $dato_it['fecha_c']?></td>
               <td>
@@ -495,8 +523,12 @@ $mostrar_it = $mostrar;
 
 
 
-<!-- Script js -->
+<!-- Script js para diseños de bootstrap -->
   <script src="js/bootstrap.bundle.js"></script>
+  <script> 
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+  </script> 
   
 </body>
 </html>
