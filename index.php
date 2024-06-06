@@ -10,7 +10,7 @@ $consulta_p->execute();
 // Registros totales para paginación(Asistencia Programada)
 $total_registros_p = $consulta_p->rowCount(); 
 // Numero de elementos por pagina (Asistencia Programada)
-$por_pagina_p = 8; 
+$por_pagina_p = 10; 
 // Paginas Totales (Asistencia Programada)
 $total_paginas_p = ceil($total_registros_p / $por_pagina_p); 
 
@@ -24,7 +24,7 @@ $consulta->execute();
 
 $total_registros = $consulta->rowCount(); 
 // Número de elementos por pagina (Asistencia Solicitada)
-$por_pagina = 8; 
+$por_pagina = 10; 
 // Paginas Totales (Asistencia Solicitada)
 $total_paginas = ceil($total_registros / $por_pagina); 
 
@@ -69,6 +69,8 @@ $mostrar_it = $mostrar;
   .modalh {background-color: #1B83AD; color: #FFFFFF;}
   .buton1 {background-color: #1B83AD; color: #FFFFFF;}
   .buton1:hover{background: #1b84adab; color: #FFFFFF;}
+  .tbody{border-color: #105069;}
+  .ttext{color: #1b84adab;}
 </style>
 <body class="bg-dark-subtle">
 
@@ -76,7 +78,7 @@ $mostrar_it = $mostrar;
 <div class="row">
 <div class="col-md-9" action="">
 <!-- Barra de Navegación  -->
-    <nav style="background-color: #1B83AD;" >
+    <nav class="rounded-bottom" style="background-color: #1B83AD;" >
       <div class="pb-0 w-100 img-flex ratio-1x1" ><img src="imagen/srat.png" alt="logo" style="margin-left: 250px;" ></div>
     </nav>
       <div class="nav nav-pills mt-3" id="pills-tab" role="tablist" style="margin-left: 140px;">
@@ -90,19 +92,19 @@ $mostrar_it = $mostrar;
         <table class="table">
           <thead>
             <tr class="text-center">
-              <th scope="col">Nro.Planilla</th>
-              <th scope="col">Dependencia</th>
-              <th scope="col">Ctd.Equipos</th>
-              <th scope="col">Act.Ejecutadas</th>
-              <th scope="col">Fch/Recibido</th>
-              <th scope="col">Fch/Corrección</th>
-              <th><p class="invisible">Botonesssss</p></th>
+              <th scope="col" class="rounded" style="color: #105069;">Nro.Planilla</th>
+              <th scope="col" style="color: #105069;">Dependencia</th>
+              <th scope="col" style="color: #105069;">Ctd.Equipos</th>
+              <th scope="col" style="color: #105069;">Act.Ejecutadas</th>
+              <th scope="col" style="color: #105069;">Fch/Recibido</th>
+              <th scope="col" style="color: #105069;">Fch/Corrección</th>
+              <th class="rounded"><p class="invisible">Botonesssss</p></th>
             </tr>
           </thead>
-          <tbody class="table-group-divider">
+          <tbody class="table-group-divider tbody">
             <?php foreach($mostrar_p as $dato_p): ?>
             <tr>
-              <th class="text-center" scope="row"><?php echo $dato_p['nro_pp']?></th>
+              <td class="text-center"><?php echo $dato_p['nro_pp']?></td>
               <td class=""><?php echo $dato_p['dependencia_p']?></td>
               <td class="text-center"><?php echo $dato_p['ctd_equipos']?></td>
               <td><span type="button" class="d-inline-block text-truncate" style="max-width: 150px;" 
@@ -162,20 +164,20 @@ $mostrar_it = $mostrar;
         <table class="table">
           <thead>
             <tr class="text-center">
-              <th scope="col">Nro.Planilla</th>
-              <th scope="col">Dependencia</th>
-              <th scope="col">Falla</th>
-              <th scope="col">Diagn/Act.Realizadas</th>
-              <th scope="col">Obs/Sugerencias</th>
-              <th scope="col">Fch/Recibido</th>
-              <th scope="col">Fch/Correción</th>
-              <th><p class="invisible">Botonesssss</p></th>
+              <th class="rounded" scope="col" style="color: #105069;">Nro.Planilla</th>
+              <th scope="col" style="color: #105069;">Dependencia</th>
+              <th scope="col" style="color: #105069;">Falla</th>
+              <th scope="col" style="color: #105069;">Diagn/Act.Realizadas</th>
+              <th scope="col" style="color: #105069;">Obs/Sugerencias</th>
+              <th scope="col" style="color: #105069;">Fch/Recibido</th>
+              <th scope="col" style="color: #105069;">Fch/Correción</th>
+              <th class="rounded"><p class="invisible">Botonesssss</p></th>
             </tr>
           </thead>
-          <tbody class="table-group-divider">
+          <tbody class="table-group-divider tbody">
             <?php foreach($mostrar as $dato): ?>
             <tr>
-              <th class="text-center" scope="row"><?php echo $dato['nro_p']?></th>
+              <td class="text-center" scope="row"><?php echo $dato['nro_p']?></td>
               <td class="text-center"><?php echo $dato['dependencia']?></td>
               <td><span type="button" class="d-inline-block text-truncate" style="max-width: 100px;" 
                   data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="<?php echo $dato['falla']?>">
@@ -243,21 +245,21 @@ $mostrar_it = $mostrar;
 <!-- Tabla 3: Informe Técnico de Mantenimiento -->
         <table class="table">
           <thead>
-            <tr class="text-center">
-              <th scope="col">Nro.Planilla</th>
-              <th scope="col">Dependencia</th>
-              <th scope="col">Motivo</th>
-              <th scope="col">Diagn/Act.Realizadas</th>
-              <th scope="col">Obs/Sugerencias</th>
-              <th scope="col">Fch/Recibido</th>
-              <th scope="col">Fch/Correción</th>
-              <th><p class="invisible">Botonesssss</p></th>
+          <tr class="text-center">
+              <th class="rounded" scope="col" style="color: #105069;">Nro.Planilla</th>
+              <th scope="col" style="color: #105069;">Dependencia</th>
+              <th scope="col" style="color: #105069;">Motivo</th>
+              <th scope="col" style="color: #105069;">Diagn/Act.Realizadas</th>
+              <th scope="col" style="color: #105069;">Obs/Sugerencias</th>
+              <th scope="col" style="color: #105069;">Fch/Recibido</th>
+              <th scope="col" style="color: #105069;">Fch/Correción</th>
+              <th class="rounded"><p class="invisible">Botonesssss</p></th>
             </tr>
           </thead>
-          <tbody class="table-group-divider">
+          <tbody class="table-group-divider tbody">
             <?php foreach($mostrar_it as $dato_it): ?>
             <tr>
-              <th class="text-center" scope="row"><?php echo $dato_it['nro_p']?></th>
+              <td class="text-center" scope="row"><?php echo $dato_it['nro_p']?></td>
               <td class="text-center"><?php echo $dato_it['dependencia']?></td>
               <td><span type="button" class="d-inline-block text-truncate" style="max-width: 100px;" 
                   data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="<?php echo $dato['motivo']?>">
@@ -456,25 +458,13 @@ $mostrar_it = $mostrar;
       <div id="carouselExampleInterval" class="carousel slide " data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active" data-bs-interval="3000">
-            <img src="imagen/carousel1.png" class="d-block w-100" style="height: 500px;" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>First slide label</h5>
-              <p>Some representative p hola que hace.</p>
-            </div>
+            <img src="imagen/carousel1.png" class="d-block w-100 rounded" style="height: 500px;" alt="...">
           </div>
           <div class="carousel-item" data-bs-interval="3000">
-            <img src="imagen/carousel2.jpg" class="d-block w-100" style="height: 500px;" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>First slide label</h5>
-              <p>Some representative placeholder content for the first slide.</p>
-            </div>
+            <img src="imagen/carousel2.jpg" class="d-block w-100 rounded" style="height: 500px;" alt="...">
           </div>
           <div class="carousel-item" data-bs-interval="3000">
-            <img src="imagen/carousel3.jpg" class="d-block w-100" style="height: 500px;" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>First slide label</h5>
-              <p>Some representative placeholder content for the first slide.</p>
-            </div>
+            <img src="imagen/carousel3.jpg" class="d-block w-100 rounded" style="height: 500px;" alt="...">
           </div>
         </div>
       </div>
