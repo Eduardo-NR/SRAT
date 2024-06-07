@@ -70,7 +70,9 @@ $mostrar_it = $mostrar;
   .buton1 {background-color: #1B83AD; color: #FFFFFF;}
   .buton1:hover{background: #1b84adab; color: #FFFFFF;}
   .tbody{border-color: #105069;}
-  .ttext{color: #1b84adab;}
+  .ttext{color: #1B83AD;}
+  .link {color: #1B83AD;}
+  .link:hover{color: #1b84adab;}
 </style>
 <body class="bg-dark-subtle">
 
@@ -457,40 +459,59 @@ $mostrar_it = $mostrar;
   <div class="col-7">   
       <div id="carouselExampleInterval" class="carousel slide " data-bs-ride="carousel">
         <div class="carousel-inner">
-          <div class="carousel-item active" data-bs-interval="3000">
-            <img src="imagen/carousel1.png" class="d-block w-100 rounded" style="height: 500px;" alt="...">
+          <div class="carousel-item active" data-bs-interval="4000">
+            <img src="imagen/carousel1.png" class="d-block w-100 rounded" style="height: 545px;" alt="...">
           </div>
-          <div class="carousel-item" data-bs-interval="3000">
-            <img src="imagen/carousel2.jpg" class="d-block w-100 rounded" style="height: 500px;" alt="...">
+          <div class="carousel-item" data-bs-interval="4000">
+            <img src="imagen/carousel2.jpg" class="d-block w-100 rounded" style="height: 545px;" alt="...">
           </div>
-          <div class="carousel-item" data-bs-interval="3000">
-            <img src="imagen/carousel4.jpg" class="d-block w-100 rounded" style="height: 500px;" alt="...">
+          <div class="carousel-item" data-bs-interval="4000">
+            <img src="imagen/carousel4.jpg" class="d-block w-100 rounded" style="height: 545px;" alt="...">
           </div>
         </div>
       </div>
   </div> 
 
-<!-- cards informativas -->
+<!-- card informativa -->
     <div class="col-5">
-    <div class="row">
+    <div class="row text-center">
       <div class="col-sm-12 mb-3 mb-sm-0">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <h5 class="ttext card-title">Indicaciones para Exportar y Limpiar las Tablas en la Base de Datos</h5><br>
+            <p class="card-text"><span class="ttext">1:</span> Entrar a la siguiente direccion de enlace: <a href="#" class="link">Ir a PHP My Admin</a></p>
+            <p class="card-text"><span class="ttext">2:</span> Seleccionar la Base de datos de nombre: <span class="ttext">"tecnica"</span>.</p>
+            <p class="card-text"><span class="ttext">3:</span> Dirigirse a <span class="ttext">"Exportar"</span> Y Seleccionar la casilla de personalizado 
+              en los <span class="ttext">"Métodos de exportación"</sapn></p>
+            <p class="card-text">4: Dirijase a<span class="ttext">"Opciones de creación de objetos"</span>y marque la primera casilla, y por ultimo presione<span class="ttext">"Continuar"</span>.</p>
+            <p class="card-text"><span class="ttext">5:</span> Para limpiar todos los registros de las tablas en la base de datos
+              solo debe dar click en el siguiente boton. Tenga en cuenta que esta acció es irreversible. 
+            </p>
+            <button type="button" class="btn buton1" data-bs-toggle="modal" data-bs-target="#Modal_limpiar_db">
+              Limpiar Base de Datos
+            </button>
           </div>
         </div>
       </div>
-      <div class="col-sm-12 mt-4">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+
+    <!-- Modal para limpiar base de Datos  -->
+      <div class="modal fade" id="Modal_limpiar_db" data-bs-backdrop="static" tabindex="-1" aria-labelledby="Modal_limpiar_db" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-md">
+          <div class="modal-content">
+            <div class="modal-header modalh">
+              <h1 class="modal-title fs-5 mx-auto" id="Modal_Label_p">¿Está seguro de esto?</h1>
+            </div>
+            <div class="modal-body">
+                    <p>¡¡Todos los datos registrados seran eliminados permanetenmente!!</p>
+            </div>
+            <div class="modal-footer">
+                <a href="php_eliminar/limpiar_db.php?limpiar" type="button" class="btn buton" name="limpiar_db">Limpiar Registros</a>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+            </div>
           </div>
         </div>
       </div>
+
     </div>
     </div>
   </div>
