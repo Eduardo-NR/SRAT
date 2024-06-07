@@ -520,7 +520,7 @@ $mostrar_it = $mostrar;
 <div class="col-3">
 <!-- leyenda -->
     <div class="card" style="width: 18rem;">
-        <img src="imagen/Logo DT.png" class="card-img-top shadow" alt="...">
+        <img src="imagen/Logo DT.png" class="card-img-top shadow">
         <div class="card-body">
             <h5 class="card-title ttext text-center">Funciones del Departamento</h5>
             <p class="card-text"><span class="ttext"><i class="bi bi-arrow-right"></i></span>  Evaluar y promover tecnología de control y su aplicabilidad en los procesos de la contraloría.<br></br>
