@@ -522,9 +522,14 @@ $mostrar_it = $mostrar;
     <div class="card" style="width: 18rem;">
         <img src="imagen/Logo DT.png" class="card-img-top shadow" alt="...">
         <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-outline-info shadow">Go somewhere</a>
+            <h5 class="card-title ttext text-center">Funciones del Departamento</h5>
+            <p class="card-text"><span class="ttext"><i class="bi bi-arrow-right"></i></span>  Evaluar y promover tecnología de control y su aplicabilidad en los procesos de la contraloría.<br></br>
+              <span class="ttext"><i class="bi bi-arrow-right"></i></span>  Dirigir la elaboración de manuales técnicos del organismo promover y su actualización.<br></br>
+              <span class="ttext"><i class="bi bi-arrow-right"></i></span>  Formular el plan de tecnología informática y Sistema de Información y velar por su ejecucións.<br></br>
+              <span class="ttext"><i class="bi bi-arrow-right"></i></span>  Asesorar a los órganos de la Contraloría en el uso de los medios de informática que posee la Organización.<br></br>
+              <span class="ttext"><i class="bi bi-arrow-right"></i></span>  Administrar la seguridad integral de la infraestructura de Tecnología y Sistemas de Información.<br></br>
+              <span class="ttext"><i class="bi bi-arrow-right"></i></span>  Coordinar y orientar la implantación de los Sistemas de control que prescriba la Contraloría.
+            </p>
         </div>
     </div>   
 </div>    
