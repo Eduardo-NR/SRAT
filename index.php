@@ -464,7 +464,7 @@ $mostrar_it = $mostrar;
             <img src="imagen/carousel2.jpg" class="d-block w-100 rounded" style="height: 500px;" alt="...">
           </div>
           <div class="carousel-item" data-bs-interval="3000">
-            <img src="imagen/carousel3.jpg" class="d-block w-100 rounded" style="height: 500px;" alt="...">
+            <img src="imagen/carousel4.jpg" class="d-block w-100 rounded" style="height: 500px;" alt="...">
           </div>
         </div>
       </div>
@@ -473,7 +473,7 @@ $mostrar_it = $mostrar;
 <!-- cards informativas -->
     <div class="col-5">
     <div class="row">
-      <div class="col-sm-6 mb-3 mb-sm-0">
+      <div class="col-sm-12 mb-3 mb-sm-0">
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Special title treatment</h5>
@@ -482,7 +482,7 @@ $mostrar_it = $mostrar;
           </div>
         </div>
       </div>
-      <div class="col-sm-6">
+      <div class="col-sm-12 mt-4">
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Special title treatment</h5>
